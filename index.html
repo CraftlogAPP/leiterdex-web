@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeiterDex — Leitern- &amp; Tritte-Prüfung nach BetrSichV rechtssicher dokumentieren</title>
+  <meta name="description" content="Leitern- und Tritte-Prüfung nach BetrSichV § 14, TRBS 2121-2 &amp; DGUV Information 208-016 gerichtsfest dokumentieren: Inventar je Leiter, 12-Punkte-Checkliste, Ampelverfahren, GPS-Stempel, Beweisfotos und PDF-Prüfbericht. Für Handwerk, Hausmeister, FM und Kommunen in DACH." />
+  <meta name="theme-color" content="#EDF0F4" />
+  <meta property="og:title" content="LeiterDex — Leitern- &amp; Tritte-Prüfung nach BetrSichV &amp; DGUV 208-016" />
+  <meta property="og:description" content="Jede Leiter im Inventar, jede Prüfung dokumentiert — 12-Punkte-Checkliste, Ampelverfahren, PDF-Prüfbericht." />
+  <meta property="og:url" content="https://leiterdex.dexware.app/" />
+  <meta property="og:image" content="https://leiterdex.dexware.app/leiterdex-icon.png" />
+  <style>
+    :root {
+      --alu: #EDF0F4; --alu-deep: #E2E7ED; --card: #FFFFFF; --ink: #141A22; --muted: #5D6774;
+      --blue: #2563EB; --blue-deep: #1D4ED8; --blue-soft: #DBEAFE; --blue-line: #93B4F8;
+      --anthra: #1B2733; --anthra-night: #141A22; --anthra-line: #2A3542;
+      --alu-grau: #64748B; --plakette: #16A34A;
+      --border: #D5DBE3;
+      --ampel-gruen: #16A34A; --ampel-orange: #EA580C; --ampel-rot: #DC2626;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--alu); color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      /* feines Konstruktionsraster wie Millimeterpapier */
+      background-image:
+        linear-gradient(rgba(37,99,235,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,.045) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+    a { color: var(--blue-deep); }
+
+    /* Header: Anthrazit-Balken wie ein Alu-Profil mit blauer Kante */
+    .sitehead { position: sticky; top: 0; z-index: 50; background: rgba(27,39,51,.97);
+      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+      border-bottom: 3px solid var(--blue); }
+    header { padding: 13px 0; display: flex; align-items: center; gap: 12px; }
+    .logo { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; background: var(--anthra-night);
+      outline: 2px solid var(--blue); }
+    .logo img { width: 100%; height: 100%; display: block; }
+    .brand { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; color: #EDF2F9; }
+    .brand b { color: #7EA7F9; }
+    .head-norm { margin-left: auto; font-size: 11.5px; font-weight: 700; letter-spacing: .8px;
+      color: #93A3B5; text-transform: uppercase; }
+    @media (max-width: 640px) { .head-norm { display: none; } }
+
+    /* Hero */
+    .hero { padding: 68px 0 30px; display: grid; grid-template-columns: 1.25fr .75fr; gap: 34px; align-items: center; }
+    @media (max-width: 820px) { .hero { grid-template-columns: 1fr; } .hero-art { order: -1; max-width: 300px; margin: 0 auto; } }
+    .kicker { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: #fff;
+      font-size: 12.5px; font-weight: 800; letter-spacing: .5px; padding: 7px 14px; border-radius: 6px; margin-bottom: 20px; }
+    h1 { font-size: clamp(34px, 5.4vw, 56px); font-weight: 900; letter-spacing: -1.5px; line-height: 1.08; }
+    h1 .blau { color: var(--blue-deep); }
+    h1 .unterstrich { box-shadow: inset 0 -0.28em 0 var(--blue-soft); }
+    .sub { margin-top: 20px; font-size: 18px; color: var(--muted); max-width: 560px; }
+    .sub strong { color: var(--ink); }
+    .cta-row { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn { display: inline-block; font-weight: 800; font-size: 16px; padding: 15px 28px;
+      border-radius: 10px; text-decoration: none; color: #fff; background: var(--blue);
+      border: 1px solid var(--blue-deep); box-shadow: 0 4px 0 var(--blue-deep);
+      transition: transform .12s ease, box-shadow .12s ease; }
+    .btn:hover { transform: translateY(2px); box-shadow: 0 2px 0 var(--blue-deep); }
+    .btn.ghost { background: var(--card); color: var(--ink); border: 1px solid var(--border); box-shadow: 0 4px 0 var(--border); }
+    .ticks { margin-top: 30px; display: flex; gap: 22px; flex-wrap: wrap; }
+    .tick { font-size: 14px; font-weight: 700; color: var(--anthra); }
+    .tick::before { content: '✓ '; color: var(--blue-deep); font-weight: 900; }
+
+    /* Leiter-Illustration (CSS-animiert): angelehnte Leiter mit aufsteigendem Prüf-Scan */
+    .hero-art { position: relative; }
+    .ladder-stage { background: var(--anthra); border: 1px solid var(--anthra-line);
+      border-radius: 14px; box-shadow: 0 18px 44px rgba(20,26,34,.28);
+      padding: 36px 24px 24px; display: grid; place-items: center; position: relative; overflow: hidden; }
+    .ladder-stage::before { content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(148,163,184,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148,163,184,.07) 1px, transparent 1px);
+      background-size: 22px 22px; }
+    .ladder { width: 150px; height: 190px; position: relative; transform: rotate(7deg); }
+    .ladder .holm { position: absolute; top: 0; bottom: 0; width: 13px; border-radius: 4px;
+      background: linear-gradient(180deg, #3B82F6, #2563EB); }
+    .ladder .holm.l { left: 10px; } .ladder .holm.r { right: 10px; }
+    .ladder .sprosse { position: absolute; left: 20px; right: 20px; height: 10px; border-radius: 3px;
+      background: linear-gradient(180deg, #C7D2DE, #94A3B4); }
+    .ladder .sprosse:nth-of-type(3) { top: 22px; } .ladder .sprosse:nth-of-type(4) { top: 60px; }
+    .ladder .sprosse:nth-of-type(5) { top: 98px; } .ladder .sprosse:nth-of-type(6) { top: 136px; }
+    .ladder .sprosse:nth-of-type(7) { top: 172px; }
+    .ladder .scan { position: absolute; left: 2px; right: 2px; bottom: -6px; height: 4px; border-radius: 2px;
+      background: linear-gradient(90deg, transparent, #60A5FA 30%, #60A5FA 70%, transparent);
+      box-shadow: 0 0 14px 2px rgba(96,165,250,.6); animation: climb 3.4s ease-in-out infinite; }
+    @keyframes climb { 0%, 12% { bottom: -6px; opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 88%, 100% { bottom: 192px; opacity: 0; } }
+    .plakette { position: absolute; right: -14px; top: 30px; width: 40px; height: 40px; border-radius: 50%;
+      background: var(--plakette); color: #fff; display: grid; place-items: center; font-size: 20px; font-weight: 900;
+      border: 3px solid #fff; box-shadow: 0 4px 12px rgba(22,163,74,.45); transform: rotate(-7deg); }
+    @media (prefers-reduced-motion: reduce) { .ladder .scan { animation: none; opacity: 0; } }
+    .stage-caption { margin-top: 20px; color: #93A3B5; font-size: 13px; font-weight: 600; text-align: center;
+      letter-spacing: .4px; position: relative; }
+
+    /* Sprossen-Trenner statt Welle: Zeile aus kurzen Alu-Strichen */
+    .rungs { display: flex; justify-content: center; gap: 14px; padding: 8px 0; }
+    .rungs i { width: 34px; height: 5px; border-radius: 3px; background: var(--alu-grau); opacity: .28; }
+    .rungs i:nth-child(odd) { background: var(--blue); opacity: .30; }
+
+    section { padding: 44px 0; }
+    .eyebrow { color: var(--blue-deep); font-size: 13px; font-weight: 900; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 8px; }
+    h2 { font-size: clamp(24px, 3.6vw, 32px); font-weight: 900; letter-spacing: -0.7px; margin-bottom: 8px; }
+    .lead { color: var(--muted); font-size: 16px; max-width: 640px; margin-bottom: 26px; }
+
+    /* Datenblatt-Karten: flach, Linkskante blau wie ein Registerreiter */
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .blatt { background: var(--card); border: 1px solid var(--border); border-left: 5px solid var(--blue);
+      border-radius: 10px; padding: 22px 20px;
+      transition: transform .15s ease, box-shadow .15s ease; }
+    .blatt:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(20,26,34,.10); }
+    .blatt:nth-child(3n+2) { border-left-color: var(--alu-grau); }
+    .blatt:nth-child(3n) { border-left-color: var(--anthra); }
+    .blatt .chip { width: 46px; height: 46px; border-radius: 8px; display: grid; place-items: center;
+      font-size: 22px; margin-bottom: 13px; background: var(--blue-soft); border: 1px solid var(--blue-line); }
+    .blatt h3 { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+    .blatt p { font-size: 14.5px; color: var(--muted); }
+
+    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 2px; }
+    .dot.g { background: var(--ampel-gruen); } .dot.o { background: var(--ampel-orange); } .dot.r { background: var(--ampel-rot); }
+
+    /* Ablauf: Sprossen-Leiter als Spur */
+    .track { position: relative; max-width: 720px; }
+    .track::before { content: ''; position: absolute; left: 10px; top: 6px; bottom: 14px; width: 7px;
+      border-radius: 3px; background: var(--blue); opacity: .85; }
+    .track::after { content: ''; position: absolute; left: 36px; top: 6px; bottom: 14px; width: 7px;
+      border-radius: 3px; background: var(--blue); opacity: .85; }
+    .hop { position: relative; padding: 0 0 30px 76px; }
+    .hop .n { position: absolute; left: 0; top: 2px; width: 53px; height: 12px; border-radius: 4px;
+      background: linear-gradient(180deg, #C7D2DE, #94A3B4); z-index: 1; }
+    .hop .n::after { content: attr(data-n); position: absolute; left: 62px; top: -14px; width: 34px; height: 34px;
+      border-radius: 8px; background: var(--anthra); color: #fff; font-weight: 900; font-size: 16px;
+      display: grid; place-items: center; }
+    .hop strong { font-size: 16.5px; display: inline-block; margin-left: 44px; }
+    .hop p { color: var(--muted); font-size: 14.5px; margin-top: 2px; margin-left: 44px; }
+
+    /* Preise */
+    .price-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); max-width: 720px; }
+    .price { background: var(--card); border: 1px solid var(--border); border-top: 5px solid var(--alu-grau);
+      border-radius: 10px; padding: 26px 24px; }
+    .price.pro { background: var(--anthra); color: #fff; border-color: var(--anthra); border-top-color: var(--blue); }
+    .price h3 { font-size: 18px; font-weight: 800; }
+    .price .amount { font-size: 38px; font-weight: 900; letter-spacing: -1px; margin: 10px 0 2px; }
+    .price.pro .amount { color: #7EA7F9; }
+    .price .per { font-size: 13px; color: var(--muted); }
+    .price.pro .per { color: #93A3B5; }
+    .price ul { list-style: none; margin-top: 16px; }
+    .price li { font-size: 14.5px; padding: 4px 0; color: var(--muted); }
+    .price.pro li { color: #D6DEE8; }
+    .price li::before { content: '✓ '; color: var(--blue); font-weight: 900; }
+    .price.pro li::before { color: #7EA7F9; }
+    .tag { display: inline-block; font-size: 11px; font-weight: 800; color: #fff;
+      background: var(--blue); padding: 4px 10px; border-radius: 5px; margin-left: 8px; vertical-align: middle; }
+
+    /* Suite-Block: Anthrazit */
+    .suite { margin-top: 30px; background: var(--anthra-night); color: #EDF2F9;
+      border-radius: 14px; padding: 38px 32px; border: 1px solid var(--anthra-line); }
+    .suite-pill { display: inline-block; font-size: 12px; font-weight: 900; letter-spacing: 1.2px;
+      text-transform: uppercase; color: #fff; background: var(--blue); padding: 6px 14px; border-radius: 6px; }
+    .suite h3 { font-size: 27px; font-weight: 900; letter-spacing: -.6px; margin-top: 16px; }
+    .suite .sl { color: #93A3B5; font-size: 15px; margin-top: 10px; max-width: 640px; }
+    .suite .sl b { color: #EDF2F9; }
+    .suite-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 26px; }
+    @media (max-width: 700px) { .suite-prices { grid-template-columns: 1fr; } }
+    .sp { background: #1C2530; border: 1px solid var(--anthra-line); border-radius: 10px; padding: 22px; position: relative; }
+    .sp.best { border: 2px solid var(--blue); }
+    .sp-badge { position: absolute; top: -13px; right: 16px; font-size: 11.5px; font-weight: 900;
+      color: #fff; background: var(--blue); padding: 4px 11px; border-radius: 5px; }
+    .sp-name { font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #93A3B5; }
+    .sp.best .sp-name { color: #7EA7F9; }
+    .sp-strike { color: #5D6774; font-size: 14px; text-decoration: line-through; margin-top: 10px; }
+    .sp-amount { font-size: 32px; font-weight: 900; letter-spacing: -.8px; }
+    .sp-amount small { font-size: 14px; font-weight: 600; color: #93A3B5; }
+    .sp-note { color: #93A3B5; font-size: 13px; margin-top: 4px; }
+    .suite-icons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+    .suite-icons img { width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--anthra-line); }
+    .suite-list { list-style: none; margin-top: 18px; }
+    .suite-list li { font-size: 14.5px; padding: 5px 0 5px 24px; position: relative; }
+    .suite-list li::before { content: '▪'; color: #7EA7F9; position: absolute; left: 0; }
+    .suite-how { color: #93A3B5; font-size: 13.5px; margin: 18px 0 20px; }
+    .suite-how a { color: #7EA7F9; }
+    .suite .btn { box-shadow: 0 4px 0 rgba(29,78,216,.55); }
+
+    /* Cross-Promo */
+    .promo-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+    .promo { display: flex; gap: 14px; align-items: center; background: var(--card);
+      border: 1px solid var(--border); border-radius: 10px; padding: 16px;
+      text-decoration: none; color: var(--ink); transition: border-color .15s ease, transform .15s ease; }
+    .promo:hover { border-color: var(--blue); transform: translateY(-3px); }
+    .promo img { flex: 0 0 48px; width: 48px; height: 48px; border-radius: 12px; }
+    .promo b { display: block; font-size: 15.5px; }
+    .promo span { font-size: 13px; color: var(--muted); }
+
+    /* Scroll-Reveal */
+    .reveal.pre { opacity: 0; transform: translateY(18px); }
+    .reveal.in { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s cubic-bezier(.22,.61,.36,1); }
+    .grid .reveal.in:nth-child(2), .promo-grid .reveal.in:nth-child(2) { transition-delay: .07s; }
+    .grid .reveal.in:nth-child(3), .promo-grid .reveal.in:nth-child(3) { transition-delay: .14s; }
+    .grid .reveal.in:nth-child(4), .promo-grid .reveal.in:nth-child(4) { transition-delay: .21s; }
+    .grid .reveal.in:nth-child(5), .promo-grid .reveal.in:nth-child(5) { transition-delay: .28s; }
+    .grid .reveal.in:nth-child(6), .promo-grid .reveal.in:nth-child(6) { transition-delay: .35s; }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero > div > * { opacity: 0; transform: translateY(16px); animation: rise .7s cubic-bezier(.22,.61,.36,1) forwards; }
+      .hero > div > *:nth-child(2) { animation-delay: .08s; }
+      .hero > div > *:nth-child(3) { animation-delay: .16s; }
+      .hero > div > *:nth-child(4) { animation-delay: .24s; }
+      .hero > div > *:nth-child(5) { animation-delay: .32s; }
+      @keyframes rise { to { opacity: 1; transform: none; } }
+    }
+
+    /* Footer */
+    .foot { background: var(--anthra-night); color: #93A3B5; margin-top: 40px; border-top: 3px solid var(--blue); }
+    .foot-inner { display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between;
+      padding: 30px 0 46px; font-size: 14px; }
+    .foot a { color: #D6DEE8; }
+    .foot nav { display: flex; gap: 16px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <div class="sitehead">
+    <div class="wrap">
+      <header>
+        <span class="logo"><img src="leiterdex-icon.png" alt="LeiterDex" /></span>
+        <span class="brand">Leiter<b>Dex</b></span>
+        <span class="head-norm">BetrSichV § 14 · TRBS 2121-2 · DGUV-I 208-016</span>
+      </header>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <span class="kicker">Befähigte Person · Handwerk · Hausmeister · FM · Kommunen · 🇩🇪 🇦🇹 🇨🇭</span>
+        <h1>Jede Leiter im Betrieb ist eine <span class="blau unterstrich">Prüfpflicht.</span></h1>
+        <p class="sub">
+          Ein Sturz von der dritten Sprosse — und die BG fragt als Erstes nach dem Prüfnachweis
+          genau dieser Leiter. LeiterDex führt dein komplettes Leitern- und Tritte-Inventar und macht
+          jede Prüfung nach <strong>BetrSichV &amp; DGUV Information 208-016</strong> zur gerichtsfesten
+          Beweiskette: 12-Punkte-Checkliste, Ampelverfahren, GPS-Stempel, Beweisfotos, PDF-Prüfbericht.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="#" id="store-link">Bald im Google Play Store</a>
+          <a class="btn ghost" href="#funktionen">Mehr erfahren</a>
+        </div>
+        <div class="ticks">
+          <span class="tick">Fälligkeit je Leiter</span>
+          <span class="tick">Einträge unveränderlich</span>
+          <span class="tick">GPS + Foto automatisch</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="ladder-stage">
+          <div class="ladder">
+            <div class="holm l"></div><div class="holm r"></div>
+            <div class="sprosse"></div><div class="sprosse"></div><div class="sprosse"></div>
+            <div class="sprosse"></div><div class="sprosse"></div>
+            <div class="scan"></div>
+            <div class="plakette">✓</div>
+          </div>
+          <div class="stage-caption">Sprosse für Sprosse geprüft — alles dokumentiert.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rungs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <div style="background:var(--alu-deep)">
+    <div class="wrap">
+      <section id="funktionen">
+        <div class="eyebrow">Funktionen</div>
+        <h2>Deine Beweiskette</h2>
+        <div class="grid">
+          <div class="blatt reveal"><span class="chip">🪜</span><h3>Inventar je Leiter</h3>
+            <p>Jede Leiter und jeder Tritt einzeln erfasst — Bauart (Anlegeleiter, Stehleiter, Mehrzweckleiter …), Material, Baujahr, Länge, Sprossenzahl. Ausgesonderte Geräte bleiben nachweisbar im Bestand.</p></div>
+          <div class="blatt reveal"><span class="chip">✅</span><h3>Checkliste nach DGUV-I 208-016</h3>
+            <p>12 Prüfpunkte für die befähigte Person — Holme, Sprossen, Leiterfüße, Spreizsicherung, Gelenke, Beschläge bis zur Kennzeichnung. Sichtkontrolle und regelmäßige Prüfung getrennt dokumentiert.</p></div>
+          <div class="blatt reveal"><span class="chip">⏰</span><h3>Fälligkeit je Leiter</h3>
+            <p>LeiterDex rechnet pro Gerät: regelmäßige Prüfung alle 12 Monate, Sichtkontrolle alle 30 Tage. Der Standort zeigt sofort, wie viele Leitern fällig sind — nichts rutscht durch.</p></div>
+          <div class="blatt reveal"><span class="chip">🚦</span><h3>Ampelverfahren mit Sperr-Doku</h3>
+            <p><span class="dot g"></span> beobachten, <span class="dot o"></span> sperren &amp; instandsetzen, <span class="dot r"></span> aussondern &amp; unbrauchbar machen: Mängel einstufen und die Sperrung der Leiter dokumentieren.</p></div>
+          <div class="blatt reveal"><span class="chip">🔒</span><h3>Unveränderlich (append-only)</h3>
+            <p>Prüfungen können nie bearbeitet oder gelöscht werden — nur gekennzeichnete Stornos mit Begründung. GPS- und Zeitstempel plus Beweisfotos inklusive. Genau das überzeugt vor Gericht.</p></div>
+          <div class="blatt reveal"><span class="chip">📄</span><h3>PDF-Prüfbericht</h3>
+            <p>Ein Tipp erzeugt den Prüfbericht „Leitern &amp; Tritte" pro Standort und Zeitraum — für die Unterlagen, die Versicherung oder die BG. Inklusive Rechtsgrundlage deines Landes (DE/AT/CH).</p></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="rungs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <div class="wrap">
+    <section>
+      <div class="eyebrow">Ablauf</div>
+      <h2>So funktioniert's</h2>
+      <div class="track">
+        <div class="hop reveal"><div class="n" data-n="1"></div><strong>Standort &amp; Leitern anlegen.</strong>
+          <p>Werkstatt, Halle, Objekt — und darunter jede Leiter mit Bauart, Material und Baujahr. Standorte sind unbegrenzt, auch in der Free-Version.</p></div>
+        <div class="hop reveal"><div class="n" data-n="2"></div><strong>Prüfung dokumentieren.</strong>
+          <p>Leiter wählen, 12-Punkte-Checkliste durchgehen, Mängel per Ampel einstufen, Foto dazu — GPS und Zeitstempel ergänzt LeiterDex automatisch. Auch „alles in Ordnung" ist ein Nachweis.</p></div>
+        <div class="hop reveal"><div class="n" data-n="3"></div><strong>Prüfbericht teilen.</strong>
+          <p>PDF pro Standort und Zeitraum an Geschäftsführung, Versicherung oder Berufsgenossenschaft — oder im Streitfall an den Anwalt.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Preise</div>
+      <h2>Preise</h2>
+      <div class="price-grid">
+        <div class="price reveal">
+          <h3>Free</h3>
+          <div class="amount">0&nbsp;€</div>
+          <div class="per">für immer</div>
+          <ul>
+            <li>5 Leitern in vollem Umfang</li>
+            <li>Standorte unbegrenzt</li>
+            <li>DGUV-Checkliste, Ampel, GPS, Fotos</li>
+            <li>PDF-Prüfbericht mit Wasserzeichen</li>
+            <li>Cloud-Sync auf allen Geräten</li>
+          </ul>
+        </div>
+        <div class="price pro reveal">
+          <h3>Pro <span class="tag">Empfohlen</span></h3>
+          <div class="amount">9,99&nbsp;€</div>
+          <div class="per">pro Monat · oder 79,99 €/Jahr (4 Monate geschenkt) · jederzeit kündbar</div>
+          <ul>
+            <li>Unbegrenzt Leitern &amp; Tritte</li>
+            <li>Team: Mitarbeiter einladen</li>
+            <li>PDF-Prüfbericht ohne Wasserzeichen</li>
+            <li>Prüfungs-Erinnerung</li>
+            <li>Priorisierter Support</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Dexware Suite Bundle -->
+      <div class="suite" id="suite">
+        <span class="suite-pill">Dexware Suite — ein Abo, alle Apps</span>
+        <h3>Alle 11 Dexware-Apps. Ein Abo.</h3>
+        <p class="sl">
+          Die Suite kostet so viel wie unsere teuerste Einzel-App — und schaltet <b>alle</b> Dexware-Apps
+          auf allen deinen Geräten frei. Neue Apps kommen automatisch dazu, ohne Aufpreis.
+        </p>
+        <div class="suite-prices">
+          <div class="sp">
+            <div class="sp-name">Monatlich</div>
+            <div class="sp-strike">über 100 € — alle Apps einzeln</div>
+            <div class="sp-amount">29,99 € <small>/ Monat</small></div>
+            <div class="sp-note">Der Preis unserer teuersten Einzel-App — über 65 % günstiger als alles einzeln.</div>
+          </div>
+          <div class="sp best">
+            <span class="sp-badge">4 Monate geschenkt · −33 %</span>
+            <div class="sp-name">Jährlich</div>
+            <div class="sp-strike">statt 359,88 € (12 × 29,99 €)</div>
+            <div class="sp-amount">239,99 € <small>/ Jahr</small></div>
+            <div class="sp-note">Entspricht 20,00 € im Monat — du zahlst nur 8 von 12 Monaten.</div>
+          </div>
+        </div>
+        <div class="suite-icons">
+          <img src="leiterdex-icon.png" alt="LeiterDex" title="LeiterDex" />
+          <img src="regaldex-icon.png" alt="RegalDex" title="RegalDex" />
+          <img src="spieldex-icon.png" alt="SpielDex" title="SpielDex" />
+          <img src="winterdex-icon.png" alt="WinterDex" title="WinterDex" />
+          <img src="kfzdex-icon.png" alt="KfzDex" title="KfzDex" />
+          <img src="pruefdex-icon.png" alt="PrüfDex" title="PrüfDex" />
+          <img src="schutzheld-icon.png" alt="SchutzDex" title="SchutzDex" />
+          <img src="baumdex-icon.png" alt="BaumDex" title="BaumDex" />
+          <img src="routelog-icon.png" alt="TourDex" title="TourDex" />
+          <img src="craftdex-icon.png" alt="CraftDex" title="CraftDex" />
+          <img src="archio-icon.png" alt="DokuDex" title="DokuDex" />
+        </div>
+        <ul class="suite-list">
+          <li>Alle 11 Apps inklusive — von Leitern-Prüfung bis Winterdienst</li>
+          <li>Alle zukünftigen Dexware-Apps automatisch dabei</li>
+          <li>Einmal kaufen — in jeder App freigeschaltet</li>
+          <li>Jederzeit kündbar</li>
+        </ul>
+        <p class="suite-how">Erhältlich direkt in jeder Dexware-App: einfach in der App auf „Pro werden" tippen und die Dexware Suite wählen.</p>
+        <a href="https://dexware.app/" target="_blank" rel="noopener" class="btn">Mehr zur Dexware Suite →</a>
+        <p class="suite-how" style="margin-top:14px">💻 Fürs Web gibt's einen Haupteinstieg: <a href="https://dashboard.dexware.app" target="_blank" rel="noopener">dashboard.dexware.app</a> — die Übersicht aller App-Dashboards. Das LeiterDex-Dashboard folgt zum Launch.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Die Dexware-Familie</div>
+      <h2>Entdecke die ganze Dexware</h2>
+      <p class="lead">LeiterDex ist Teil der Dexware-Familie — Pflicht-Dokumentation, die einfach funktioniert.</p>
+      <div class="promo-grid">
+        <a class="promo reveal" href="https://regaldex.dexware.app" target="_blank" rel="noopener">
+          <img src="regaldex-icon.png" alt="RegalDex" width="48" height="48" />
+          <span><b>RegalDex</b><span>Regalinspektion nach DIN EN 15635 — Ampelverfahren &amp; Prüfbericht.</span></span></a>
+        <a class="promo reveal" href="https://pruefdex.dexware.app" target="_blank" rel="noopener">
+          <img src="pruefdex-icon.png" alt="PrüfDex" width="48" height="48" />
+          <span><b>PrüfDex</b><span>DGUV-V3-Prüfung: Geräte, Protokolle, Plaketten &amp; Fristen.</span></span></a>
+        <a class="promo reveal" href="https://spieldex.dexware.app" target="_blank" rel="noopener">
+          <img src="spieldex-icon.png" alt="SpielDex" width="48" height="48" />
+          <span><b>SpielDex</b><span>Spielplatzkontrolle nach DIN EN 1176 — gerichtsfest dokumentiert.</span></span></a>
+        <a class="promo reveal" href="https://winterdex.dexware.app" target="_blank" rel="noopener">
+          <img src="winterdex-icon.png" alt="WinterDex" width="48" height="48" />
+          <span><b>WinterDex</b><span>Winterdienst gerichtsfest — Räum- &amp; Streupflicht mit GPS &amp; Wetter.</span></span></a>
+        <a class="promo reveal" href="https://kfzdex.dexware.app" target="_blank" rel="noopener">
+          <img src="kfzdex-icon.png" alt="KfzDex" width="48" height="48" />
+          <span><b>KfzDex</b><span>Fuhrpark-Verwaltung — UVV-Prüfung, Führerscheinkontrolle &amp; Fristen.</span></span></a>
+        <a class="promo reveal" href="https://schutzdex.dexware.app" target="_blank" rel="noopener">
+          <img src="schutzheld-icon.png" alt="SchutzDex" width="48" height="48" />
+          <span><b>SchutzDex</b><span>KI-Unterweisung &amp; Gefährdungsbeurteilung — prüffest dokumentiert.</span></span></a>
+        <a class="promo reveal" href="https://baumdex-portal.vercel.app/" target="_blank" rel="noopener">
+          <img src="baumdex-icon.png" alt="BaumDex" width="48" height="48" />
+          <span><b>BaumDex</b><span>Baumkataster &amp; Verkehrssicherung für GaLaBau und Baumpflege.</span></span></a>
+        <a class="promo reveal" href="https://craftdex.dexware.app" target="_blank" rel="noopener">
+          <img src="craftdex-icon.png" alt="CraftDex" width="48" height="48" />
+          <span><b>CraftDex</b><span>Aufträge, Zeiten &amp; Material — die App für Handwerksbetriebe.</span></span></a>
+        <a class="promo reveal" href="https://tourdex.dexware.app" target="_blank" rel="noopener">
+          <img src="routelog-icon.png" alt="TourDex" width="48" height="48" />
+          <span><b>TourDex</b><span>Automatisches Fahrtenbuch — KI trennt geschäftlich &amp; privat.</span></span></a>
+        <a class="promo reveal" href="https://dokudex.dexware.app" target="_blank" rel="noopener">
+          <img src="archio-icon.png" alt="DokuDex" width="48" height="48" />
+          <span><b>DokuDex</b><span>Dokumente scannen &amp; per KI verstehen — mit Fristen-Erinnerung.</span></span></a>
+      </div>
+      <p style="text-align:center;margin-top:20px">
+        <a href="https://dexware.app/" target="_blank" rel="noopener">Alle Dexware-Apps auf einen Blick →</a>
+      </p>
+    </section>
+  </div>
+
+  <div class="foot">
+    <div class="wrap">
+      <div class="foot-inner">
+        <span>© 2026 LeiterDex · Alexander Pfalz</span>
+        <nav>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="konto-loeschung.html">Konto löschen</a>
+          <a href="mailto:2easy4trash@gmail.com?subject=LeiterDex%20Support">Support</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduced && 'IntersectionObserver' in window) {
+        var els = document.querySelectorAll('.reveal');
+        for (var j = 0; j < els.length; j++) els[j].classList.add('pre');
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.12 });
+        for (var k = 0; k < els.length; k++) io.observe(els[k]);
+      }
+    })();
+  </script>
+</body>
+</html>

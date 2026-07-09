@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leitern &amp; Tritte prüfen: Fristen, befähigte Person, Dokumentation | LeiterDex</title>
+  <meta name="description" content="Wie oft müssen Leitern geprüft werden, wer ist die befähigte Person und ist die Dokumentation Pflicht? Ratgeber zu BetrSichV § 14, TRBS 2121-2, DGUV Information 208-016 &amp; DIN EN 131 — mit 12-Punkte-Checkliste, Ampelverfahren und FAQ." />
+  <meta name="robots" content="all" />
+  <meta name="theme-color" content="#EDF0F4" />
+  <link rel="canonical" href="https://leiterdex.dexware.app/ratgeber-leiterpruefung.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Leitern &amp; Tritte prüfen: Fristen, befähigte Person, Dokumentation" />
+  <meta property="og:description" content="Prüffristen, befähigte Person und Dokumentationspflicht nach BetrSichV § 14, TRBS 2121-2 &amp; DGUV Information 208-016 — verständlich erklärt." />
+  <meta property="og:url" content="https://leiterdex.dexware.app/ratgeber-leiterpruefung.html" />
+  <meta property="og:image" content="https://leiterdex.dexware.app/leiterdex-icon.png" />
+  <style>
+    :root {
+      --alu: #EDF0F4; --alu-deep: #E2E7ED; --card: #FFFFFF; --ink: #141A22; --muted: #5D6774;
+      --blue: #2563EB; --blue-deep: #1D4ED8; --blue-soft: #DBEAFE; --blue-line: #93B4F8;
+      --anthra: #1B2733; --anthra-night: #141A22; --anthra-line: #2A3542;
+      --alu-grau: #64748B; --plakette: #16A34A;
+      --border: #D5DBE3;
+      --ampel-gruen: #16A34A; --ampel-orange: #EA580C; --ampel-rot: #DC2626;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--alu); color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      background-image:
+        linear-gradient(rgba(37,99,235,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,.045) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+    a { color: var(--blue-deep); }
+
+    /* Header — identisch zur Startseite */
+    .sitehead { position: sticky; top: 0; z-index: 50; background: rgba(27,39,51,.97);
+      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+      border-bottom: 3px solid var(--blue); }
+    header { padding: 13px 0; display: flex; align-items: center; gap: 12px; }
+    .logo { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; background: var(--anthra-night);
+      outline: 2px solid var(--blue); }
+    .logo img { width: 100%; height: 100%; display: block; }
+    .brand { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; color: #EDF2F9; text-decoration: none; }
+    .brand b { color: #7EA7F9; }
+    .head-norm { margin-left: auto; font-size: 11.5px; font-weight: 700; letter-spacing: .8px;
+      color: #93A3B5; text-transform: uppercase; }
+    @media (max-width: 640px) { .head-norm { display: none; } }
+
+    /* Artikel */
+    .crumb { font-size: 13px; color: var(--muted); margin: 26px 0 4px; font-weight: 600; }
+    .crumb a { color: var(--blue-deep); text-decoration: none; }
+    .eyebrow { color: var(--blue-deep); font-size: 13px; font-weight: 900; letter-spacing: 1.4px; text-transform: uppercase; margin: 30px 0 8px; }
+    article { padding-bottom: 20px; }
+    h1 { font-size: clamp(28px, 4.6vw, 42px); font-weight: 900; letter-spacing: -1px; line-height: 1.12; margin: 6px 0 14px; }
+    h1 .blau { color: var(--blue-deep); box-shadow: inset 0 -0.26em 0 var(--blue-soft); }
+    .stand { color: var(--muted); font-size: 13px; margin-bottom: 26px; }
+    .intro { font-size: 18px; color: var(--muted); margin-bottom: 8px; }
+    .intro strong { color: var(--ink); }
+    h2 { font-size: clamp(22px, 3.4vw, 28px); font-weight: 900; letter-spacing: -0.6px; margin: 40px 0 10px; }
+    h3 { font-size: 18px; font-weight: 800; margin: 24px 0 6px; }
+    p { font-size: 16px; margin-bottom: 14px; color: #26313D; }
+    article ul, article ol { padding-left: 22px; margin: 4px 0 16px; }
+    article li { font-size: 16px; margin-bottom: 7px; color: #26313D; }
+    strong { color: var(--ink); }
+
+    /* Registerreiter-Karte wie auf der Startseite */
+    .blatt { background: var(--card); border: 1px solid var(--border); border-left: 5px solid var(--blue);
+      border-radius: 10px; padding: 20px 22px; margin: 20px 0; }
+    .blatt.grau { border-left-color: var(--alu-grau); }
+    .blatt.anthra { border-left-color: var(--anthra); }
+    .blatt h3 { margin-top: 0; }
+
+    /* Rechtsgrundlagen-Chips */
+    .norms { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 20px; }
+    .norm { font-size: 12.5px; font-weight: 800; color: var(--blue-deep); background: var(--blue-soft);
+      border: 1px solid var(--blue-line); padding: 6px 11px; border-radius: 6px; }
+
+    /* 12-Punkte-Prüfliste */
+    .checklist { list-style: none; padding-left: 0; display: grid; gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+    .checklist li { position: relative; background: var(--card); border: 1px solid var(--border);
+      border-radius: 9px; padding: 13px 14px 13px 46px; font-size: 15px; margin: 0; }
+    .checklist li b { display: block; font-size: 15.5px; color: var(--ink); }
+    .checklist li span { color: var(--muted); font-size: 13.5px; }
+    .checklist li::before { counter-increment: chk; content: counter(chk); position: absolute; left: 10px; top: 12px;
+      width: 26px; height: 26px; border-radius: 7px; background: var(--anthra); color: #fff;
+      font-weight: 900; font-size: 13px; display: grid; place-items: center; }
+    ol.checklist { counter-reset: chk; }
+
+    /* Ampel */
+    .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 4px; vertical-align: -1px; }
+    .dot.g { background: var(--ampel-gruen); } .dot.o { background: var(--ampel-orange); } .dot.r { background: var(--ampel-rot); }
+    .ampel { list-style: none; padding-left: 0; }
+    .ampel li { padding: 12px 16px; border-radius: 9px; margin-bottom: 10px; background: var(--card);
+      border: 1px solid var(--border); border-left: 5px solid var(--alu-grau); }
+    .ampel li.gr { border-left-color: var(--ampel-gruen); }
+    .ampel li.or { border-left-color: var(--ampel-orange); }
+    .ampel li.ro { border-left-color: var(--ampel-rot); }
+
+    /* FAQ */
+    .faq { border-top: 1px solid var(--border); margin-top: 8px; }
+    .faq details { border-bottom: 1px solid var(--border); }
+    .faq summary { cursor: pointer; padding: 16px 30px 16px 2px; font-weight: 800; font-size: 16.5px;
+      list-style: none; position: relative; color: var(--ink); }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; position: absolute; right: 4px; top: 13px; font-size: 24px;
+      font-weight: 400; color: var(--blue-deep); transition: transform .2s ease; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { padding: 0 2px 18px; margin: 0; color: #26313D; }
+
+    /* CTA */
+    .cta { background: var(--anthra-night); color: #EDF2F9; border-radius: 14px; padding: 30px 30px;
+      border: 1px solid var(--anthra-line); margin: 40px 0 10px; }
+    .cta .pill { display: inline-block; font-size: 12px; font-weight: 900; letter-spacing: 1.2px;
+      text-transform: uppercase; color: #fff; background: var(--blue); padding: 6px 14px; border-radius: 6px; }
+    .cta h3 { color: #EDF2F9; font-size: 22px; margin: 14px 0 8px; }
+    .cta p { color: #93A3B5; font-size: 15px; margin-bottom: 18px; }
+    .cta p b { color: #EDF2F9; }
+    .btn { display: inline-block; font-weight: 800; font-size: 15px; padding: 14px 26px;
+      border-radius: 10px; text-decoration: none; color: #fff; background: var(--blue);
+      border: 1px solid var(--blue-deep); box-shadow: 0 4px 0 rgba(29,78,216,.55);
+      transition: transform .12s ease, box-shadow .12s ease; }
+    .btn:hover { transform: translateY(2px); box-shadow: 0 2px 0 rgba(29,78,216,.55); }
+
+    .disclaimer { background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 14px 16px; margin: 26px 0; font-size: 13.5px; color: var(--muted); }
+
+    /* Sprossen-Trenner */
+    .rungs { display: flex; justify-content: center; gap: 14px; padding: 10px 0; }
+    .rungs i { width: 34px; height: 5px; border-radius: 3px; background: var(--alu-grau); opacity: .28; }
+    .rungs i:nth-child(odd) { background: var(--blue); opacity: .30; }
+
+    /* Footer — identisch zur Startseite */
+    .foot { background: var(--anthra-night); color: #93A3B5; margin-top: 40px; border-top: 3px solid var(--blue); }
+    .foot-inner { display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between;
+      padding: 30px 0 46px; font-size: 14px; }
+    .foot a { color: #D6DEE8; }
+    .foot nav { display: flex; gap: 16px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <div class="sitehead">
+    <div class="wrap">
+      <header>
+        <a href="index.html" class="logo"><img src="leiterdex-icon.png" alt="LeiterDex" /></a>
+        <a href="index.html" class="brand">Leiter<b>Dex</b></a>
+        <span class="head-norm">BetrSichV § 14 · TRBS 2121-2 · DGUV-I 208-016</span>
+      </header>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <article>
+      <p class="crumb"><a href="index.html">Start</a> › Ratgeber › Leiterprüfung</p>
+      <div class="eyebrow">Ratgeber · Arbeitssicherheit</div>
+      <h1>Wie oft müssen Leitern und Tritte geprüft werden — und <span class="blau">wer darf das überhaupt?</span></h1>
+      <p class="stand">Stand: Juli 2026 · Lesezeit ca. 8 Minuten · Für Handwerk, Hausmeister, Facility-Management und Kommunen</p>
+
+      <p class="intro">
+        Eine Leiter ist ein Arbeitsmittel — und für Arbeitsmittel gilt in Deutschland eine klare
+        Prüfpflicht. Wer im Betrieb Leitern oder Tritte bereitstellt, muss sie <strong>regelmäßig durch eine
+        befähigte Person prüfen lassen und diese Prüfung dokumentieren</strong>. Dieser Ratgeber erklärt die
+        Rechtsgrundlage, die Prüffristen, wer prüfen darf, worauf es bei den einzelnen Prüfpunkten ankommt
+        und warum die schriftliche Dokumentation im Schadensfall entscheidend ist.
+      </p>
+
+      <h2>Ist die Leiterprüfung gesetzlich vorgeschrieben?</h2>
+      <p>
+        Ja. Grundlage ist die <strong>Betriebssicherheitsverordnung (BetrSichV)</strong>. Nach § 14 BetrSichV
+        muss der Arbeitgeber Arbeitsmittel, die Schäden verursachenden Einflüssen unterliegen und deren
+        Sicherheit dadurch beeinträchtigt werden kann, wiederkehrend durch eine zur Prüfung befähigte Person
+        prüfen lassen. Leitern und Tritte gehören eindeutig dazu — sie sind mechanischer Belastung, Verschleiß,
+        Witterung und Transportbeanspruchung ausgesetzt.
+      </p>
+      <p>
+        Konkretisiert wird diese Pflicht durch die technischen Regeln und die berufsgenossenschaftlichen
+        Informationen:
+      </p>
+      <div class="norms">
+        <span class="norm">BetrSichV § 14</span>
+        <span class="norm">TRBS 2121-2</span>
+        <span class="norm">TRBS 1203 (befähigte Person)</span>
+        <span class="norm">DGUV Information 208-016</span>
+        <span class="norm">DIN EN 131</span>
+      </div>
+      <p>
+        Die <strong>TRBS 2121 Teil 2</strong> beschreibt die Gefährdungen bei der Verwendung von Leitern und die
+        erforderlichen Schutzmaßnahmen. Die <strong>DGUV Information 208-016</strong> („Handlungsanleitung für den
+        Umgang mit Leitern und Tritten") liefert die praxisnahe Grundlage für Prüfung und Prüfumfang. Die
+        Bauart-Anforderungen an die Leiter selbst regelt die Produktnorm <strong>DIN EN 131</strong>. Die
+        BetrSichV verlangt außerdem, dass <strong>Art, Umfang und Fristen der Prüfungen aus der Gefährdungs­beurteilung
+        abgeleitet</strong> werden — es gibt also keine starre gesetzliche Zahl, sondern eine betrieblich begründete Frist.
+      </p>
+
+      <h2>Welche Prüfarten gibt es — und wie oft wird geprüft?</h2>
+      <p>
+        Man unterscheidet zwei Ebenen, die nicht miteinander verwechselt werden dürfen:
+      </p>
+
+      <div class="blatt">
+        <h3>1. Sicht- und Funktionskontrolle vor jeder Benutzung</h3>
+        <p style="margin-bottom:0">
+          Vor jedem Einsatz prüft der Benutzer die Leiter durch <strong>Inaugenscheinnahme</strong> auf offensichtliche
+          Mängel — verbogene Holme, beschädigte Sprossen, fehlende Leiterfüße, defekte Spreizsicherung. Diese
+          Kontrolle ist keine Prüfung durch eine befähigte Person, sondern eine Selbstverständlichkeit im
+          täglichen Umgang. Sie muss nicht förmlich dokumentiert werden, gehört aber in die Unterweisung.
+        </p>
+      </div>
+
+      <div class="blatt anthra">
+        <h3>2. Regelmäßige Prüfung durch eine befähigte Person</h3>
+        <p style="margin-bottom:0">
+          Zusätzlich muss die Leiter <strong>wiederkehrend durch eine befähigte Person</strong> geprüft werden. Die
+          Frist ergibt sich aus der Gefährdungsbeurteilung und richtet sich nach Beanspruchung und
+          Einsatzbedingungen. In der Praxis hat sich ein Prüfintervall von <strong>etwa zwölf Monaten (jährlich)</strong>
+          etabliert; bei intensiver Nutzung, rauem Baustellenbetrieb oder Außenlagerung kann eine kürzere Frist
+          angemessen sein. Diese Prüfung ist zu dokumentieren.
+        </p>
+      </div>
+
+      <p>
+        <strong>Merksatz:</strong> Die Sichtkontrolle schützt vor dem Unfall heute, die regelmäßige Prüfung durch die
+        befähigte Person schützt vor dem Nachweisproblem morgen. Nur Letztere erfüllt die Prüfpflicht nach § 14
+        BetrSichV.
+      </p>
+
+      <h2>Wer ist eine „zur Prüfung befähigte Person"?</h2>
+      <p>
+        Der Begriff ist in der BetrSichV und in der <strong>TRBS 1203</strong> definiert. Eine zur Prüfung befähigte
+        Person ist, wer durch <strong>Berufsausbildung, Berufserfahrung und zeitnahe berufliche Tätigkeit</strong> über die
+        erforderlichen Fachkenntnisse zur Prüfung des betreffenden Arbeitsmittels verfügt. Für Leitern und Tritte
+        bedeutet das konkret:
+      </p>
+      <ul>
+        <li><strong>Fachkenntnisse zu Leitern</strong> — Bauarten, typische Schadensbilder, Beurteilungskriterien und die einschlägigen Regeln (BetrSichV, TRBS 2121-2, DGUV Information 208-016).</li>
+        <li><strong>Aktuelle berufliche Praxis</strong> — die Kenntnisse müssen durch aktuelle Tätigkeit auf dem Stand der Technik gehalten werden.</li>
+        <li><strong>Weisungsfreiheit bei der Beurteilung</strong> — die befähigte Person entscheidet fachlich, ob eine Leiter weiter verwendet werden darf.</li>
+      </ul>
+      <p>
+        Ein förmlicher Sachverständigen-Titel ist nicht erforderlich. Häufig übernimmt ein geeigneter,
+        eigens geschulter Mitarbeiter diese Aufgabe. Wichtig ist, dass die Qualifikation nachvollziehbar
+        vorliegt — sie kann im Schadensfall hinterfragt werden.
+      </p>
+
+      <h2>Die 12 Prüfpunkte bei Leitern und Tritten</h2>
+      <p>
+        Die folgende Liste orientiert sich am Prüfumfang der DGUV Information 208-016. Jeder Punkt wird auf
+        Vollständigkeit, festen Sitz, Verschleiß und Beschädigung geprüft:
+      </p>
+      <ol class="checklist">
+        <li><b>Holme</b><span>Verformung, Risse, Knicke, Korrosion, Beschädigung.</span></li>
+        <li><b>Sprossen &amp; Stufen</b><span>Fester Sitz, Verschleiß, Verformung, keine losen Elemente.</span></li>
+        <li><b>Leiterfüße</b><span>Vorhanden, unbeschädigt, rutschhemmend, nicht abgenutzt.</span></li>
+        <li><b>Spreizsicherung</b><span>Ketten, Gurte oder Bügel vollständig, straff, funktionsfähig.</span></li>
+        <li><b>Gelenke</b><span>Bei Mehrzweck- und Klappleitern: fest, spielfrei, sicher verriegelbar.</span></li>
+        <li><b>Verbindungen &amp; Beschläge</b><span>Nieten, Schrauben, Verbindungsstellen fest und vollzählig.</span></li>
+        <li><b>Fallhaken &amp; Zugseil</b><span>Bei Schiebeleitern: Einrastung, Seilzustand, Umlenkung intakt.</span></li>
+        <li><b>Plattform &amp; Standfläche</b><span>Bei Podest-/Stehleitern: eben, tragfähig, Absturzsicherung vorhanden.</span></li>
+        <li><b>Traverse / Standverbreiterung</b><span>Fest montiert, unverbogen, korrekt ausgerichtet.</span></li>
+        <li><b>Holz &amp; Anstriche</b><span>Bei Holzleitern: keine deckenden Anstriche, die Risse verbergen; kein Splittern, keine Fäulnis.</span></li>
+        <li><b>Kennzeichnung</b><span>Hersteller-/Typenschild, Belastungsangabe und Benutzerhinweise lesbar.</span></li>
+        <li><b>Verschmutzung</b><span>Öl, Farbe, Mörtel oder Eis, die Rutschgefahr oder Sichtbarkeit von Mängeln beeinträchtigen.</span></li>
+      </ol>
+
+      <h2>Was tun bei Mängeln? Das Ampelverfahren</h2>
+      <p>
+        Nicht jeder Mangel bedeutet dasselbe. Bewährt hat sich eine dreistufige Einstufung, mit der die
+        befähigte Person die weitere Verwendung steuert:
+      </p>
+      <ul class="ampel">
+        <li class="gr"><span class="dot g"></span><strong>Grün — beobachten:</strong> geringfügige Auffälligkeit ohne Sicherheitsrelevanz. Die Leiter bleibt im Einsatz, der Zustand wird bei der nächsten Prüfung erneut beurteilt.</li>
+        <li class="or"><span class="dot o"></span><strong>Orange — sperren &amp; instand setzen:</strong> Mangel, der die sichere Nutzung beeinträchtigt. Die Leiter wird der Benutzung entzogen, bis sie fachgerecht instand gesetzt und erneut geprüft ist.</li>
+        <li class="ro"><span class="dot r"></span><strong>Rot — aussondern &amp; unbrauchbar machen:</strong> nicht reparabler oder sicherheitskritischer Schaden. Die Leiter wird dauerhaft aus dem Verkehr gezogen und so gekennzeichnet oder zerstört, dass sie nicht versehentlich weiterverwendet wird.</li>
+      </ul>
+      <p>
+        Entscheidend ist, dass eine gesperrte oder ausgesonderte Leiter <strong>nachweislich</strong> aus dem Bestand
+        genommen wird — ein bloß mündlicher Hinweis genügt nicht. Wer eine erkennbar mangelhafte Leiter
+        weiterhin bereitstellt, handelt fahrlässig.
+      </p>
+
+      <h2>Dokumentationspflicht: Warum das Prüfergebnis schriftlich muss</h2>
+      <p>
+        Die BetrSichV verlangt, dass die Ergebnisse der wiederkehrenden Prüfungen <strong>aufgezeichnet und
+        aufbewahrt</strong> werden. Ohne Dokumentation existiert die Prüfung im Streitfall schlicht nicht — denn was
+        nicht nachweisbar ist, gilt als nicht geschehen. Eine belastbare Prüfdokumentation hält mindestens fest:
+      </p>
+      <ul>
+        <li>welche Leiter geprüft wurde (eindeutige Kennzeichnung / Inventarnummer),</li>
+        <li>Datum und Prüfart,</li>
+        <li>Name der befähigten Person,</li>
+        <li>Ergebnis je Prüfpunkt und festgestellte Mängel,</li>
+        <li>getroffene Maßnahme (Freigabe, Instandsetzung, Aussonderung),</li>
+        <li>Termin der nächsten Prüfung.</li>
+      </ul>
+      <p>
+        Eine <strong>Prüfplakette</strong> auf der Leiter ist ein sinnvoller Sichtnachweis der Fälligkeit — sie ersetzt
+        aber nicht die inhaltliche Prüfdokumentation. Erst die Aufzeichnung macht nachvollziehbar, <em>was</em>
+        geprüft und <em>wie</em> beurteilt wurde.
+      </p>
+
+      <h3>Haftung im Schadensfall</h3>
+      <p>
+        Verunglückt jemand mit einer betrieblichen Leiter, fragen Berufsgenossenschaft, Unfallversicherung
+        und im Ernstfall die Ermittlungsbehörden als Erstes nach dem <strong>Prüfnachweis genau dieser Leiter</strong>.
+        Kann der Arbeitgeber die ordnungsgemäße Prüfung und den einwandfreien Zustand belegen, ist er auf der
+        sicheren Seite. Fehlt der Nachweis, kann das als Verletzung der Betreiber- und Fürsorgepflicht gewertet
+        werden — mit möglichen Folgen von Regressansprüchen der Unfallversicherung bis hin zu persönlicher
+        Verantwortlichkeit der Verantwortlichen. Eine lückenlose Dokumentation ist damit weniger Bürokratie
+        als vielmehr die eigene Absicherung.
+      </p>
+
+      <div class="disclaimer">
+        Hinweis: Dieser Ratgeber gibt den Stand der genannten Vorschriften allgemein verständlich wieder und
+        ersetzt keine Rechtsberatung. Maßgeblich sind im Einzelfall die aktuellen Fassungen von BetrSichV,
+        TRBS und DGUV-Schriften sowie die betriebliche Gefährdungsbeurteilung.
+      </div>
+
+      <div class="eyebrow">Häufige Fragen</div>
+      <h2>FAQ zur Leiterprüfung</h2>
+      <div class="faq">
+        <details>
+          <summary>Wie oft müssen Leitern geprüft werden?</summary>
+          <p>Die genaue Frist ergibt sich aus der Gefährdungsbeurteilung des Betriebs; die BetrSichV nennt keine feste Zahl. In der Praxis hat sich eine regelmäßige Prüfung durch eine befähigte Person etwa alle zwölf Monate (jährlich) etabliert. Bei starker Beanspruchung, Baustelleneinsatz oder Außenlagerung kann ein kürzeres Intervall angemessen sein. Unabhängig davon ist vor jeder Benutzung eine Sichtkontrolle durch den Nutzer erforderlich.</p>
+        </details>
+        <details>
+          <summary>Wer darf Leitern prüfen — wer ist die „befähigte Person"?</summary>
+          <p>Prüfen darf eine zur Prüfung befähigte Person im Sinne der BetrSichV und der TRBS 1203. Das ist, wer durch Berufsausbildung, Berufserfahrung und zeitnahe berufliche Tätigkeit die nötigen Fachkenntnisse zu Leitern besitzt und die einschlägigen Regeln kennt. Ein förmlicher Sachverständigen-Titel ist nicht nötig; häufig übernimmt ein geschulter Mitarbeiter diese Aufgabe. Die Qualifikation sollte nachweisbar sein.</p>
+        </details>
+        <details>
+          <summary>Ist die Leiterprüfung gesetzlich vorgeschrieben?</summary>
+          <p>Ja. Nach § 14 der Betriebssicherheitsverordnung müssen Arbeitsmittel, die Schäden verursachenden Einflüssen unterliegen, wiederkehrend durch eine befähigte Person geprüft werden. Leitern und Tritte fallen darunter. Konkretisiert wird die Pflicht durch die TRBS 2121-2 und die DGUV Information 208-016.</p>
+        </details>
+        <details>
+          <summary>Muss die Leiterprüfung dokumentiert werden?</summary>
+          <p>Ja. Die Ergebnisse der wiederkehrenden Prüfung sind aufzuzeichnen und aufzubewahren. Zur Dokumentation gehören die geprüfte Leiter, Datum und Prüfart, die befähigte Person, das Ergebnis je Prüfpunkt mit festgestellten Mängeln, die getroffene Maßnahme und der nächste Prüftermin. Ohne diese Aufzeichnung gilt die Prüfung im Streitfall als nicht erfolgt.</p>
+        </details>
+        <details>
+          <summary>Reicht eine Prüfplakette als Nachweis aus?</summary>
+          <p>Nein. Eine Prüfplakette ist ein praktischer Sichtnachweis, dass eine Prüfung stattgefunden hat und wann die nächste fällig ist. Sie ersetzt aber nicht die inhaltliche Prüfdokumentation, aus der hervorgeht, was geprüft und wie das Ergebnis beurteilt wurde. Beides ergänzt sich.</p>
+        </details>
+        <details>
+          <summary>Was passiert mit einer defekten Leiter?</summary>
+          <p>Das hängt vom Mangel ab. Geringfügige Auffälligkeiten werden beobachtet, sicherheitsrelevante Mängel führen zur Sperrung und Instandsetzung, nicht reparable oder gefährliche Schäden zur Aussonderung. Eine ausgesonderte Leiter muss nachweislich aus dem Verkehr gezogen und so gekennzeichnet oder unbrauchbar gemacht werden, dass sie nicht versehentlich weiterverwendet wird.</p>
+        </details>
+        <details>
+          <summary>Gilt die Prüfpflicht auch für Tritte und kleine Leitern?</summary>
+          <p>Ja. Auch Tritte, Stehleitern und kurze Leitern sind Arbeitsmittel im Sinne der BetrSichV und unterliegen der Sichtkontrolle vor Benutzung sowie der regelmäßigen Prüfung durch eine befähigte Person. Die Bauart oder Größe ändert nichts an der grundsätzlichen Prüf- und Dokumentationspflicht.</p>
+        </details>
+      </div>
+
+      <div class="cta">
+        <span class="pill">Prüfung dokumentieren</span>
+        <h3>Jede Leiter im Inventar, jede Prüfung gerichtsfest belegt</h3>
+        <p>
+          <b>LeiterDex</b> führt dein komplettes Leitern- und Tritte-Inventar und macht jede Prüfung nach
+          BetrSichV und DGUV Information 208-016 zur Beweiskette: 12-Punkte-Checkliste, Ampelverfahren,
+          GPS-Stempel, Beweisfotos und PDF-Prüfbericht — Fälligkeiten inklusive.
+        </p>
+        <a class="btn" href="index.html#funktionen">LeiterDex ansehen →</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="rungs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <div class="foot">
+    <div class="wrap">
+      <div class="foot-inner">
+        <span>© 2026 LeiterDex · Alexander Pfalz</span>
+        <nav>
+          <a href="index.html">Start</a>
+          <a href="ratgeber-leiterpruefung.html">Ratgeber</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="konto-loeschung.html">Konto löschen</a>
+          <a href="mailto:2easy4trash@gmail.com?subject=LeiterDex%20Support">Support</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie oft müssen Leitern geprüft werden?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die genaue Frist ergibt sich aus der Gefährdungsbeurteilung des Betriebs; die BetrSichV nennt keine feste Zahl. In der Praxis hat sich eine regelmäßige Prüfung durch eine befähigte Person etwa alle zwölf Monate (jährlich) etabliert. Bei starker Beanspruchung, Baustelleneinsatz oder Außenlagerung kann ein kürzeres Intervall angemessen sein. Unabhängig davon ist vor jeder Benutzung eine Sichtkontrolle durch den Nutzer erforderlich."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wer darf Leitern prüfen — wer ist die befähigte Person?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prüfen darf eine zur Prüfung befähigte Person im Sinne der BetrSichV und der TRBS 1203. Das ist, wer durch Berufsausbildung, Berufserfahrung und zeitnahe berufliche Tätigkeit die nötigen Fachkenntnisse zu Leitern besitzt und die einschlägigen Regeln kennt. Ein förmlicher Sachverständigen-Titel ist nicht nötig; häufig übernimmt ein geschulter Mitarbeiter diese Aufgabe. Die Qualifikation sollte nachweisbar sein."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist die Leiterprüfung gesetzlich vorgeschrieben?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Nach § 14 der Betriebssicherheitsverordnung müssen Arbeitsmittel, die Schäden verursachenden Einflüssen unterliegen, wiederkehrend durch eine befähigte Person geprüft werden. Leitern und Tritte fallen darunter. Konkretisiert wird die Pflicht durch die TRBS 2121-2 und die DGUV Information 208-016."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Muss die Leiterprüfung dokumentiert werden?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Die Ergebnisse der wiederkehrenden Prüfung sind aufzuzeichnen und aufzubewahren. Zur Dokumentation gehören die geprüfte Leiter, Datum und Prüfart, die befähigte Person, das Ergebnis je Prüfpunkt mit festgestellten Mängeln, die getroffene Maßnahme und der nächste Prüftermin. Ohne diese Aufzeichnung gilt die Prüfung im Streitfall als nicht erfolgt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Reicht eine Prüfplakette als Nachweis aus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Eine Prüfplakette ist ein praktischer Sichtnachweis, dass eine Prüfung stattgefunden hat und wann die nächste fällig ist. Sie ersetzt aber nicht die inhaltliche Prüfdokumentation, aus der hervorgeht, was geprüft und wie das Ergebnis beurteilt wurde. Beides ergänzt sich."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was passiert mit einer defekten Leiter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Das hängt vom Mangel ab. Geringfügige Auffälligkeiten werden beobachtet, sicherheitsrelevante Mängel führen zur Sperrung und Instandsetzung, nicht reparable oder gefährliche Schäden zur Aussonderung. Eine ausgesonderte Leiter muss nachweislich aus dem Verkehr gezogen und so gekennzeichnet oder unbrauchbar gemacht werden, dass sie nicht versehentlich weiterverwendet wird."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Gilt die Prüfpflicht auch für Tritte und kleine Leitern?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Auch Tritte, Stehleitern und kurze Leitern sind Arbeitsmittel im Sinne der BetrSichV und unterliegen der Sichtkontrolle vor Benutzung sowie der regelmäßigen Prüfung durch eine befähigte Person. Die Bauart oder Größe ändert nichts an der grundsätzlichen Prüf- und Dokumentationspflicht."
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+</html>

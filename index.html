@@ -339,52 +339,52 @@
     .eyebrow { display: flex; align-items: center; gap: 12px; font-size: 12px; text-transform: uppercase; letter-spacing: .16em; }
     .eyebrow::before { content: ''; width: 30px; height: 2px; border-radius: 2px; background: var(--accent); flex: none; }
 
-    /* Handy-Wand + Lichter in der App-Farbe (Kopfbereich) */
-    .hero.walled { isolation: isolate; min-height: min(780px, 100svh); display: flex; align-items: center;
-      background:
-        radial-gradient(55% 70% at 80% 30%, color-mix(in oklab, var(--accent) 34%, transparent), transparent 70%),
-        radial-gradient(40% 55% at 100% 90%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 70%),
-        radial-gradient(45% 60% at 0% 0%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 70%),
-        var(--bg); }
-    .hero.walled::before { display: none; }
-    .hero.walled::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-      background: linear-gradient(90deg, var(--bg) 0%, color-mix(in oklab, var(--bg) 92%, transparent) 30%, color-mix(in oklab, var(--bg) 40%, transparent) 56%, transparent 78%),
-        linear-gradient(0deg, var(--bg) 0%, color-mix(in oklab, var(--bg) 60%, transparent) 12%, transparent 34%); }
-    .hero.walled > .wrap { position: relative; z-index: 1; width: 100%; }
-    .wall { position: absolute; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
-    .wall-in { position: absolute; top: -38%; left: 26%; width: 115%; height: 190%; display: flex; gap: 26px;
-      transform: perspective(2200px) rotateX(14deg) rotateZ(-15deg); transform-origin: 50% 0; opacity: .5; }
-    .col { flex: none; width: 160px; }
-    .col:nth-child(even) { margin-top: -140px; }
-    .track { animation: wall-up var(--d) linear infinite; will-change: transform; }
-    .col:nth-child(even) .track { animation-name: wall-down; }
-    @keyframes wall-up { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -50%, 0); } }
-    @keyframes wall-down { from { transform: translate3d(0, -50%, 0); } to { transform: translate3d(0, 0, 0); } }
-    .wall.paused .track { animation-play-state: paused; }
-    @media (prefers-reduced-motion: reduce) { .track { animation: none; } }
-    .mp { position: relative; margin-bottom: 26px; padding: 5px; border-radius: 26px; background: linear-gradient(160deg, #343947, #0d1018 45%);
-      box-shadow: 0 0 0 1px rgba(255,255,255,.07) inset, 0 24px 40px -22px rgba(0,0,0,.9); }
-    .mp::before { content: ''; display: block; height: 14px; border-radius: 21px 21px 0 0; background: var(--bar); }
-    .mp::after { content: ''; position: absolute; top: 9px; left: 50%; width: 32%; height: 8px; transform: translateX(-50%); border-radius: 99px; background: #000; }
-    .mp img { display: block; width: 100%; height: auto; aspect-ratio: 150 / 290; object-fit: cover; object-position: top; border-radius: 0 0 21px 21px; }
-    /* Lichtschein hinter den beiden Handys */
-    .hero.walled .shots::before { content: ''; position: absolute; inset: 8% 4% 10%; border-radius: 50%; z-index: -1; filter: blur(48px);
-      background: radial-gradient(closest-side, color-mix(in oklab, var(--accent) 55%, transparent), color-mix(in oklab, var(--accent) 18%, transparent) 60%, transparent); }
-    @media (max-width: 900px) {
-      .hero.walled { min-height: 0; }
-      .hero.walled::after { background: linear-gradient(180deg, color-mix(in oklab, var(--bg) 92%, transparent) 0%, color-mix(in oklab, var(--bg) 74%, transparent) 50%, color-mix(in oklab, var(--bg) 55%, transparent) 75%, var(--bg) 100%); }
-      .wall-in { left: -30%; top: -20%; width: 170%; opacity: .42; }
-    }
-    @media (max-width: 480px) { .col { width: 128px; } .wall-in { gap: 18px; } }
+    /* Kopf-Bühne (stages.js) */
+    .hero.staged { isolation: isolate; min-height: min(780px, 100svh); display: flex; align-items: center; background: var(--bg); }
+    .hero.staged::before { display: none; }
+    .hero.staged > .wrap { position: relative; z-index: 1; width: 100%; }
+    .stage { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+    @media (max-width: 900px) { .hero.staged { min-height: 0; } }
 
-    /* Kopf „leiterdex“: phones=swap, wall=right, speed=1.1, frame=dark (looks.js) */
-    .shots .phone.a { left: auto; right: 4%; }
-    .shots .phone.b { right: auto; left: 0; transform-origin: top left; }
-    @media (max-width: 900px) { .shots .phone.a { right: 2%; } }
-    .wall-in { top: -32%; left: 30%; transform: perspective(2200px) rotateX(14deg) rotateZ(13deg); }
-    @media (max-width: 900px) { .wall-in { left: -20%; top: -24%; width: 170%; opacity: .42; } }
-    .track { animation-duration: calc(var(--d) * 1.1); }
-    .mp { border-radius: 22px; } .mp::before { border-radius: 17px 17px 0 0; } .mp img { border-radius: 0 0 17px 17px; }
+    .hero.st-row-h { display: block; min-height: 0; padding-bottom: 0;
+      background: radial-gradient(120% 60% at 50% 100%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 70%), var(--bg); }
+    .hero.st-row-h > .wrap { grid-template-columns: 1fr; text-align: center; padding-top: 72px; padding-bottom: 8px; }
+    .hero.st-row-h > .wrap > div:first-child { max-width: 860px; margin: 0 auto; }
+    .hero.st-row-h h1 { font-size: clamp(36px, 5.4vw, 64px); }
+    .hero.st-row-h .sub { margin-left: auto; margin-right: auto; max-width: 640px; }
+    .hero.st-row-h .cta, .hero.st-row-h .ticks, .hero.st-row-h .hint { justify-content: center; }
+    .hero.st-row-h .ticks { border-top: 0; padding-top: 0; }
+    .hero.st-row-h .ios-tab { margin-left: auto; margin-right: auto; text-align: left; }
+    .hero.st-row-h .shots { display: none; }
+    .row-phones { position: relative; display: flex; justify-content: center; align-items: flex-start; height: 430px; margin-top: 44px; overflow: hidden; padding-top: 14px; }
+    .row-phones .phone { --pw: 232px; position: relative; flex: none; }
+    .hero.st-row-h::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 120px; pointer-events: none; z-index: 2;
+      background: linear-gradient(0deg, var(--bg), transparent); }
+    .row-phones { gap: 22px; }
+    .row-phones .p1 { transform: translateY(140px); opacity: .8; } .row-phones .p2 { transform: translateY(105px); } .row-phones .p3 { transform: translateY(70px); }
+    .row-phones .p4 { transform: translateY(35px); } .row-phones .p5 { transform: translateY(0); }
+    @media (prefers-reduced-motion: no-preference) {
+      .row-phones:not(.band) .phone { animation: row-in 1s cubic-bezier(.16,.84,.24,1) both, row-bob 7s ease-in-out 1.4s infinite; }
+      .row-phones:not(.band) .p2, .row-phones:not(.band) .p4 { animation-delay: .14s, 2.3s; }
+      .row-phones:not(.band) .p1, .row-phones:not(.band) .p5 { animation-delay: .28s, 3.2s; }
+    }
+    @keyframes row-in { from { opacity: 0; translate: 0 120px; scale: .9; } }
+    @keyframes row-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -12px; } }
+    @keyframes row-fan-1 { from { opacity: 0; rotate: 22deg; translate: 0 60px; } } @keyframes row-fan-2 { from { opacity: 0; rotate: 11deg; translate: 0 60px; } }
+    @keyframes row-fan-4 { from { opacity: 0; rotate: -11deg; translate: 0 60px; } } @keyframes row-fan-5 { from { opacity: 0; rotate: -22deg; translate: 0 60px; } }
+    @keyframes row-shelf { from { opacity: 0; scale: .2 1; } }
+    @media (max-width: 900px) {
+      .hero.st-row-h > .wrap { padding-top: 40px; }
+      .hero.st-row-h .ticks { justify-content: flex-start; text-align: left; }
+      .row-phones { height: 330px; margin-top: 30px; }
+      .hero.st-row-h::after { height: 64px; }
+      .row-phones .phone { --pw: 168px; }
+      .row-phones:not(.band) .p1, .row-phones:not(.band) .p5 { display: none; }
+    }
+    @media (max-width: 520px) { .row-phones .phone { --pw: 138px; } .row-phones { height: 280px; }
+      .row-phones .p2 { margin-right: -22px; } .row-phones .p4 { margin-left: -22px; } }
+
+    /* Kopf „leiterdex“: Bühne row, phones=swap, frame=dark (looks.js, stages.js) */
 
     .kicker { background: none; padding: 0; border-radius: 0; gap: 12px; font-size: 12px; text-transform: uppercase; letter-spacing: .16em; }
     .kicker::before { content: ''; width: 30px; height: 2px; border-radius: 2px; background: var(--accent); }
@@ -476,8 +476,8 @@
   </header>
 
   <main>
-    <div class="hero walled">
-      <div class="wall" aria-hidden="true"><div class="wall-in"><div class="col" style="--d:70s"><div class="track"><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-3.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#141a22"><img src="assets/shots/wand-5.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-3.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#141a22"><img src="assets/shots/wand-5.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div></div></div><div class="col" style="--d:88s"><div class="track"><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-6.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-2.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-6.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-2.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div></div></div><div class="col" style="--d:106s"><div class="track"><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-3.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#141a22"><img src="assets/shots/wand-5.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-3.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#141a22"><img src="assets/shots/wand-5.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div></div></div><div class="col" style="--d:79s"><div class="track"><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-6.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-2.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-6.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-2.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div></div></div><div class="col" style="--d:97s"><div class="track"><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-3.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#141a22"><img src="assets/shots/wand-5.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-3.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#141a22"><img src="assets/shots/wand-5.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div></div></div><div class="col" style="--d:70s"><div class="track"><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-6.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-2.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-6.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-2.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div><div class="mp" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async" fetchpriority="low"></div></div></div></div></div>
+    <div class="hero staged st-row-h">
+      
       <div class="wrap">
         <div>
           <span class="kicker">Leitern & Tritte prüfen · DE · AT · CH</span>
@@ -496,6 +496,7 @@
           <div class="phone b"><div class="screen" style="--bar:#1b2733"><img src="assets/shots/hero-2.webp" width="600" height="1123" alt="LeiterDex: Checkliste nach DGUV Information 208-016 mit Mangel" decoding="async"></div></div>
         </div>
       </div>
+      <div class="row-phones" aria-label="Screenshots der App"><div class="phone p1"><div class="screen" style="--bar:#1b2733"><img src="assets/shots/wand-1.webp" width="300" height="562" alt="" decoding="async"></div></div><div class="phone p2"><div class="screen" style="--bar:#1b2733"><img src="assets/shots/hero-2.webp" width="600" height="1123" alt="LeiterDex: Checkliste nach DGUV Information 208-016 mit Mangel" decoding="async"></div></div><div class="phone p3"><div class="screen" style="--bar:#1b2733"><img src="assets/shots/hero-1.webp" width="600" height="1123" alt="LeiterDex: Leitern und Tritte je Standort mit Prüfstatus" decoding="async"></div></div><div class="phone p4"><div class="screen" style="--bar:#1b2733"><img src="assets/shots/wand-4.webp" width="300" height="562" alt="" decoding="async"></div></div><div class="phone p5"><div class="screen" style="--bar:#141a22"><img src="assets/shots/wand-5.webp" width="300" height="562" alt="" decoding="async"></div></div></div>
     </div>
 
     <section class="soft" id="pflicht">

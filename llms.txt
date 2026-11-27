@@ -1,0 +1,69 @@
+# LeiterDex
+
+> LeiterDex ist eine App von Dexware. Die App für Leiterprüfer und befähigte Personen: Leitern und Tritte nach DGUV Information 208-016 prüfen, Mängel per Ampel, PDF-Bericht. Gratis starten. Android-App bei Google Play, am iPhone im Browser. Pro 9,99 € im Monat oder 79,99 € im Jahr.
+
+Sachliche Kurzinfo für Sprachmodelle und Suchdienste. Maßgeblich sind die Angaben auf https://leiterdex.dexware.app/. Anbieter: Dexware (https://dexware.app/), Kontakt: support@dexware.app.
+
+## Was LeiterDex macht
+
+- Holm für Holm, Sprosse für Sprosse: Zwölf Prüfpunkte, angelehnt an die DGUV Information 208-016, von Holmen und Sprossen bis zu Kennzeichnung und Verschmutzung. Jeden Mangel stufst du ein: beobachten, sperren oder aussondern.
+- Bestand mit Vorgeschichte: Zu jeder Leiter Bauart, Material und Baujahr. Die Prüffrist legst du einmal für den Betrieb fest, 12, 6 oder 3 Monate oder eigene Tage, und LeiterDex rechnet daraus für jede Leiter den nächsten Termin. Ausgesonderte Leitern verschwinden nicht, sie bleiben belegt.
+- Ein Bericht, der Bestand hat: Das PDF fasst einen Standort und Zeitraum zusammen und nennt die Rechtsgrundlage des Landes, ob DE, AT oder CH. Gespeichertes bleibt, wie es ist; zurücknehmen geht nur per begründetem Storno.
+
+## Am PC im Dexware-Dashboard
+
+Was du an Leitern und Tritten prüfst, siehst du im Dexware-Dashboard am Computer — mit demselben Konto, ohne Installation.
+
+- Fällige Prüfungen: Aktive Standorte, offene Mängel und welche Leiter als Nächste geprüft werden muss.
+- Prüfbericht-PDF: Je Standort und Zeitraum, mit Checklisten, Leitern-Inventar, Mängeln und Fotos.
+- Excel rein und raus: Leitern und Tritte aus einer Liste einlesen, Prüfbuch und Prüfungen als Excel-Datei.
+- Team per Code: Mitarbeiter mit einem Team-Code dazuholen (Pro), Mitglieder sehen und entfernen.
+
+## Für wen
+
+Für Leiterprüfer.
+
+## Preise
+
+- Gratis (für immer): 2 Leitern, Standorte unbegrenzt; Checkliste, Ampel, GPS, Fotos; PDF-Bericht mit Wasserzeichen; Cloud-Sync auf allen Geräten
+- Pro: 9,99 € im Monat oder 79,99 € im Jahr. Enthält: Unbegrenzt Leitern & Tritte; PDF ohne Wasserzeichen; Team mit bis zu 20 Mitarbeitern; Prüfungs-Erinnerung; Priorisierter Support
+- Stufen nach Teamgröße (ein Abo pro Betrieb, Mitarbeiter treten per Team-Code bei und brauchen kein eigenes Abo):
+  - Pro (bis 20 Mitarbeiter): 9,99 € im Monat · 79,99 € im Jahr
+  - Team (bis 50 Mitarbeiter): 14,99 € im Monat · 119,99 € im Jahr
+  - Team XL (bis 100 Mitarbeiter): 19,99 € im Monat · 159,99 € im Jahr
+  - Unternehmen (über 100 Mitarbeiter): Angebot · auf Rechnung
+- Dexware Suite (Prüf-Paket): alle 9 Prüf-Apps der Suite (GurtDex, ToreDex, GerüstDex, FeuerDex, LeiterDex, RegalDex, PrüfDex, SchutzDex, HebeDex) für 24,99 € im Monat oder 199,99 € im Jahr (entspricht 16,67 € im Monat), ab 3 Prüf-Apps günstiger als einzeln.
+- Preise inkl. MwSt., Abo jederzeit kündbar.
+
+## Kurz beantwortet
+
+- Lohnt sich eine App für die Leiterprüfung gegenüber der Papierliste? Eine Liste auf Papier sagt dir nicht, welche Leiter nächsten Monat fällig ist. LeiterDex rechnet für jede Leiter den nächsten Termin und hängt an jeden Befund Foto, Ort und Uhrzeit.
+- Wie oft müssen Leitern und Tritte geprüft werden? Eine feste Zahl nennt die BetrSichV nicht, die Frist kommt aus der Gefährdungsbeurteilung. Die DGUV Information 208-016 empfiehlt mindestens einmal im Jahr, bei rauem Baustellenbetrieb kann es öfter sein.
+- Gibt es eine Vorlage für das Leiter-Prüfprotokoll? Ja, eine kostenlose PDF-Vorlage samt Pflichtangaben und ausgefülltem Muster: Leiter-Prüfprotokoll. Mit LeiterDex entfällt das Abtippen, der Bericht entsteht aus den Prüfungen.
+- Kann ich die Leitern auch am Schreibtisch verwalten? Ja, im Dexware-Dashboard öffnest du Standorte, Leitern, Prüfungen und Prüfberichte im Browser.
+- Können mehrere Leiterprüfer im selben Betrieb arbeiten? Ja. Kollegen kommen per Team-Code dazu, mit Pro bis zu 20, darüber in den Stufen Team und Team XL. An jeder Prüfung steht, wer sie gemacht hat.
+- Und wie sieht es in Österreich oder der Schweiz aus? In Österreich gibt es für normale Leitern und Tritte keine feste Prüffrist, der Arbeitgeber muss sie nach ASchG und Arbeitsmittelverordnung in sicherem Zustand halten.
+- Alle Antworten: https://leiterdex.dexware.app/#faq
+
+## Seiten
+
+- [Startseite](https://leiterdex.dexware.app/): Funktionen, Preise, häufige Fragen
+- [Preise](https://leiterdex.dexware.app/#preise): Gratis, Pro und Stufen nach Teamgröße
+- [Häufige Fragen](https://leiterdex.dexware.app/#faq)
+- [LeiterDex am iPhone](https://leiterdex.dexware.app/#iphone): im Browser, ohne App Store
+- [Dexware-Dashboard](https://dashboard.dexware.app/app/leiterdex): am PC im Browser, mit demselben Konto
+- [Google Play](https://play.google.com/store/apps/details?id=com.leiterdex.app): Android-App
+- [Dexware](https://dexware.app/): alle Apps von Dexware
+
+## Ratgeber
+
+- [Arbeiten auf Leitern: 2-m- und 5-m-Regel](https://leiterdex.dexware.app/ratgeber-arbeiten-auf-leitern.html): Wann darf auf Leitern gearbeitet werden? Bis 2 m Standhöhe, bis 5 m nur kurz (max. 2 Stunden), Stufen statt Sprossen: TRBS 2121-2 verständlich erklärt, mit FAQ.
+- [Leitern und Tritte prüfen: Fristen und Dokumentation](https://leiterdex.dexware.app/ratgeber-leiterpruefung.html): Wie oft müssen Leitern geprüft werden, wer ist die befähigte Person und ist die Dokumentation Pflicht? Ratgeber zu BetrSichV § 14, TRBS 2121-2, DGUV Information 208-016 & DIN EN 131 — mit 12-Punkte-Checkliste, Ampelverfahren und FAQ.
+- [Leiter-Prüfprotokoll: Vorlage und Pflichtangaben](https://leiterdex.dexware.app/ratgeber-pruefprotokoll-vorlage.html): Prüfprotokoll für Leitern und Tritte: welche Angaben nach § 14 Abs. 7 BetrSichV Pflicht sind, ausgefülltes Muster, die 12 Prüfpunkte nach DGUV Information 208-016 und eine kostenlose Vorlage als PDF zum Ausdrucken.
+
+## Rechtliches
+
+- [Impressum](https://leiterdex.dexware.app/impressum.html)
+- [Datenschutz](https://leiterdex.dexware.app/datenschutz.html)
+- [AGB](https://leiterdex.dexware.app/agb.html)
+- [AVV](https://leiterdex.dexware.app/avv.html)

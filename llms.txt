@@ -35,10 +35,17 @@ Für Leiterprüfer.
 - Dexware Suite (Prüf-Paket): alle 9 Prüf-Apps der Suite (GurtDex, ToreDex, GerüstDex, FeuerDex, LeiterDex, RegalDex, PrüfDex, SchutzDex, HebeDex) für 24,99 € im Monat oder 199,99 € im Jahr (entspricht 16,67 € im Monat), ab 3 Prüf-Apps günstiger als einzeln.
 - Preise inkl. MwSt., Abo jederzeit kündbar.
 
+## Was LeiterDex nicht ist
+
+- Kein Ersatz für die befähigte Person: LeiterDex unterstützt ausschließlich bei der Dokumentation und ersetzt keine fachliche Beurteilung. Die Prüfung führt eine befähigte Person durch.
+- Keine Rechtsberatung: Die Ratgeber von LeiterDex geben die Vorschriften allgemein verständlich wieder und ersetzen keine Rechtsberatung.
+- Eine iPhone-App im App Store gibt es noch nicht; am iPhone und iPad läuft LeiterDex im Browser (Leitern und Tritte prüfen — mit Checkliste, Fotos und Unterschrift). QR-Scan, Erinnerungen und einige Extras gibt es vorerst nur in der Android-App.
+
 ## Kurz beantwortet
 
-- Lohnt sich eine App für die Leiterprüfung gegenüber der Papierliste? Eine Liste auf Papier sagt dir nicht, welche Leiter nächsten Monat fällig ist. LeiterDex rechnet für jede Leiter den nächsten Termin und hängt an jeden Befund Foto, Ort und Uhrzeit.
+- Gibt es eine App für die Leiterprüfung? Ja. LeiterDex führt dich mit 12 Prüfpunkten, angelehnt an die DGUV Information 208-016, durch jede Leiter, ordnet Mängel einer Ampel zu und rechnet für jede Leiter den nächsten Prüftermin.
 - Wie oft müssen Leitern und Tritte geprüft werden? Eine feste Zahl nennt die BetrSichV nicht, die Frist kommt aus der Gefährdungsbeurteilung. Die DGUV Information 208-016 empfiehlt mindestens einmal im Jahr, bei rauem Baustellenbetrieb kann es öfter sein.
+- Wer darf Leitern prüfen? Eine zur Prüfung befähigte Person im Sinne der BetrSichV und der TRBS 1203, also wer durch Berufsausbildung, Berufserfahrung und zeitnahe berufliche Tätigkeit die nötigen Fachkenntnisse zu Leitern besitzt.
 - Gibt es eine Vorlage für das Leiter-Prüfprotokoll? Ja, eine kostenlose PDF-Vorlage samt Pflichtangaben und ausgefülltem Muster: Leiter-Prüfprotokoll. Mit LeiterDex entfällt das Abtippen, der Bericht entsteht aus den Prüfungen.
 - Kann ich die Leitern auch am Schreibtisch verwalten? Ja, im Dexware-Dashboard öffnest du Standorte, Leitern, Prüfungen und Prüfberichte im Browser.
 - Können mehrere Leiterprüfer im selben Betrieb arbeiten? Ja. Kollegen kommen per Team-Code dazu, mit Pro bis zu 20, darüber in den Stufen Team und Team XL. An jeder Prüfung steht, wer sie gemacht hat.

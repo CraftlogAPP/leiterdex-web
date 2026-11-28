@@ -65,7 +65,7 @@ Für Leiterprüfer.
 ## Ratgeber
 
 - [Arbeiten auf Leitern: 2-m- und 5-m-Regel](https://leiterdex.dexware.app/ratgeber-arbeiten-auf-leitern.html): Wann darf auf Leitern gearbeitet werden? Bis 2 m Standhöhe, bis 5 m nur kurz (max. 2 Stunden), Stufen statt Sprossen: TRBS 2121-2 verständlich erklärt, mit FAQ.
-- [Leitern und Tritte prüfen: Fristen und Dokumentation](https://leiterdex.dexware.app/ratgeber-leiterpruefung.html): Wie oft müssen Leitern geprüft werden, wer ist befähigte Person, ist die Doku Pflicht? BetrSichV § 14, TRBS 2121-2, DIN EN 131 mit 12-Punkte-Checkliste.
+- [Leitern und Tritte prüfen: Fristen und Doku](https://leiterdex.dexware.app/ratgeber-leiterpruefung.html): Wie oft müssen Leitern geprüft werden, wer ist befähigte Person, ist die Doku Pflicht? BetrSichV § 14, TRBS 2121-2, DIN EN 131 mit 12-Punkte-Checkliste.
 - [Leiter-Prüfprotokoll: Vorlage und Pflichtangaben](https://leiterdex.dexware.app/ratgeber-pruefprotokoll-vorlage.html): Prüfprotokoll für Leitern und Tritte: Pflichtangaben nach § 14 Abs. 7 BetrSichV, ausgefülltes Muster, die 12 Prüfpunkte und eine kostenlose PDF-Vorlage.
 
 ## Rechtliches
